@@ -30,6 +30,7 @@ class User(AbstractUser):
         verbose_name="токен",
         **NULLABLE
     )
+    telegram_id = models.CharField(max_length=100, verbose_name='Телеграмм', **NULLABLE)
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
