@@ -7,7 +7,7 @@ NULLABLE = {'blank': True, 'null': True}
 class Habit(models.Model):
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='пользователь')
     place = models.CharField(max_length=150, verbose_name='место')
-    time = models.TimeField(default='00:00:00', verbose_name='время')
+    time = models.TimeField(default='09:00:00', verbose_name='время')
     date = models.DateField(verbose_name='дата', **NULLABLE)
     action = models.CharField(max_length=100, verbose_name='действие')
     is_pleasant = models.BooleanField(default=False, verbose_name='признак приятной привычки')

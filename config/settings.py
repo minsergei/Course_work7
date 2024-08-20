@@ -151,12 +151,24 @@ SIMPLE_JWT = {
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
 }
 
-EMAIL_HOST = os.getenv('EMAIL_HOST')
-EMAIL_PORT = os.getenv('EMAIL_PORT')
-EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
-EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS', False) == 'True'
-EMAIL_USE_SSL = os.getenv('EMAIL_USE_SSL', False) == 'True'
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:8000',
+    ]
 
-SERVER_EMAIL = os.getenv('SERVER_EMAIL')
-DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL')
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:8000',
+    ]
+
+# Celery settings
+CELERY_BROKER_URL = os.getenv('LOCATION')
+CELERY_RESULT_BACKEND = os.getenv('LOCATION')
+CELERY_TIMEZONE = TIME_ZONE
+
+CELERY_BEAT_SCHEDULE = {
+    'task-name': {
+        'task': 'habit.tasks.send_telegram',
+        'schedule': timedelta(minutes=1)
+    }
+}
+
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")

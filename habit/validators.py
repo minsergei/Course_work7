@@ -29,22 +29,6 @@ class HabitRelatedHabitIsPleasantValidator:
             raise ValidationError('Связанной привычкой может быть только приятная привычка')
 
 
-class HabitPleasantValidator:
-
-    def __init__(self, field1, field2, field3):
-        self.field1 = field1
-        self.field2 = field2
-        self.field3 = field3
-
-    def __call__(self, value):
-        related_habit = dict(value).get(self.field1)
-        reward = dict(value).get(self.field2)
-        is_pleasant = dict(value).get(self.field3)
-
-        if is_pleasant and reward and related_habit:
-            raise ValidationError('У приятной привычки не может быть вознаграждения или связанной привычки')
-
-
 class HabitTimeDurationValidator:
 
     def __init__(self, field):
