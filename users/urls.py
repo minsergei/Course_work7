@@ -3,7 +3,6 @@ from rest_framework.permissions import AllowAny
 
 from users.apps import UsersConfig
 from users.views import UserRetrieveAPIView, UserCreateAPIView, UserUpdateAPIView
-from rest_framework.routers import DefaultRouter
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 
