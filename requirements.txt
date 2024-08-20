@@ -18,3 +18,4 @@ django-cors-headers
 stripe
 celery
 django-celery-beat
+flake8
